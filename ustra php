@@ -1,0 +1,245 @@
+<!-- http://localhost/ustraa%20php/ustra.php -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ustraa |Home</title>
+    <link rel = "stylesheet" href = "style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</head>
+<body>
+<?php
+// if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+// $Team = $_POST['Team'];
+
+// echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+//   <strong>sSuccess</strong> great' .$Team.'
+//   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+//     <span aria-hidden="true">&times;</span>
+//   </button>
+// </div>';
+
+// }
+
+
+echo "databse connectivity<br>";
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "ustraa";
+//create a connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+if(isset($_POST['submit'])){
+
+
+  if(!empty(($_POST['Team']))){
+
+    $Team = $_POST['Team'];
+    $query = "insert into form (Team) values($Team)";
+$run = mysqli_query($conn, $query) or die(mysqli_error);
+if($run){
+  echo "form submitted";
+}
+else {
+  echo "form submit";
+}
+
+  }
+    else{
+      echo "all fiedls required";
+
+    
+}
+
+}
+
+// create a table in the database
+// VARCHAR(10) NOT NULL
+
+$sql = "CREATE TABLE `All Team` (
+-- ( `name` VARCHAR(20) NOT NULL , `age` INT(10) NOT NULL
+
+ `Rhino Hurricanes(Uttar Pradesh)` VARCHAR(20) NOT NULL,
+ `Midnight Stars(j&k)`VARCHAR(20) NOT NULL,
+ `Rocky Assasians(Delhi)` VARCHAR(20) NOT NULL,
+ `Striking Sharpshooters(Delhi)` VARCHAR(20) NOT NULL,
+ `Skull Fireballs(Goa)`VARCHAR(20) NOT NULL,
+` Blue Bombers(Haryana)`VARCHAR(20) NOT NULL,
+` Blue Geckos(Madhya Pradesh)` VARCHAR(20) NOT NULL,
+ `Midnight Miners(Uttar Pradesh)`  VARCHAR(20) NOT NULL,
+ `Spirit Blockerz(Andhra Pradesh)`  VARCHAR(20) NOT NULL,
+ `Wind Kamikaze Pilots(Kerala)` VARCHAR(20) NOT NULL,
+ `Retro Chuckers(Uttrakhand)` VARCHAR(20) NOT NULL,
+ `Venomous cyborgs(West Bengal)`  VARCHAR(20) NOT NULL,
+ `Quicksilver Ninjas(Sikkim)` VARCHAR(20) NOT NULL,
+ `Alpha Blockerz(Rajasthan)` VARCHAR(20) NOT NULL,
+ `Retro heroes(Harayana)` VARCHAR(20) NOT NULL,
+ `Lions(Punjab)` VARCHAR(20) NOT NULL,
+ `Raging Spanners(Himachal Pradesh)` VARCHAR(20) NOT NULL,
+ `Poison Spiders(Odisha)` VARCHAR(20) NOT NULL,
+ `Black Bullets(ttar Pradesh)` VARCHAR(20) NOT NULL,
+ `Thunder Commandos(Uttar Pradesh)`  VARCHAR(20) NOT NULL,
+ `Venomous Sharks(Harayana)` VARCHAR(20) NOT NULL,
+ `Killer Stars(Nagaland)` VARCHAR(20) NOT NULL,
+ `Tornado geckos(Punjab)` VARCHAR(20) NOT NULL,
+ `Knockout Busters(Madhya Pradesh)`  VARCHAR(20) NOT NULL,
+ `Muffin Racres(Maharshtra)` VARCHAR(20) NOT NULL,
+ `Real Madrid(Delhi)` VARCHAR(20) NOT NULL,
+ `Demolition Pildervivers(Uttrakhand)`  VARCHAR(20) NOT NULL,
+ `Flying Experss(Delhi)` VARCHAR(20) NOT NULL,
+ `The Silver wasps(Uttarkhand)`  VARCHAR(20) NOT NULL,
+ `The ShowStoppers(Delhi)`  VARCHAR(20) NOT NULL,
+ `Wolfburg(Harayana)` VARCHAR(20) NOT NULL,
+ `Black and White Gangstaz(Andhra Pradesh)` VARCHAR(20) NOT NULL
+ )";
+
+// $sql = "CREATE TABLE `Team` ( `name` VARCHAR(10) NOT NULL , `age` INT(10) NOT NULL )";
+
+// $sql = "CREATE TABLE `State` ( `name` VARCHAR(10) NOT NULL , `age` INT(10) NOT NULL )";
+
+
+$result = mysqli_query($conn , $sql);
+if($result){
+    echo " the table was created successfully<br>";
+}
+else{
+    echo " the table was not created succesfully<br>" . mysqli_error($conn);
+}
+
+
+
+//creating a database
+// $sql = "CREATE DATABASE deepanshi";
+// $result = mysqli_query($conn , $sql);
+// if($result){
+//     echo " the db was created successfully<br>";
+// }
+// else{
+//     echo " the db was not created succesfully<br>" . mysqli_error($conn);
+// }
+
+    
+//die fi coonection was not successfull
+
+if(!$conn){
+    die("soory we failed to connect<br>");
+}
+else{
+echo "connection was succesfull<br>";
+}
+
+//check for the databse connection
+
+
+echo "the result is";
+echo var_dump($result);
+echo "<br>";
+?>
+
+
+    
+    <header>
+        <h1>Ustraa</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="products.html">Products</a>
+        <a href="">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact us </a>
+
+    </nav>
+
+    <main>
+         
+
+        <section>
+            <h2>Important Announcment || Ustraa Champions League</h2>
+            <p>`This is the first time that champions is going to begin `</p>
+            <p> In the ustraa Champions league , the grop stage comprises 32 cricket clubs. Here are following teams qualified </p>
+            <div style="background: ghostwhite; 
+            font-size: 20px; 
+            padding: 10px; 
+            border: 1px solid lightgray; 
+            margin: 10px;">
+            
+</div>
+<ul>
+<li>Rhino Hurricanes(Uttar Pradesh)</li>
+<li>Midnight Stars(j&k)</li>
+<li>Rocky Assasians(Delhi)</li>
+<li>Striking Sharpshooters(Delhi)</li>
+<li>Skull Fireballs(Goa)</li>
+<li>Blue Bombers(Haryana)</li>
+<li>Blue Geckos(Madhya Pradesh)</li>
+<li>Midnight Miners(Uttar Pradesh)</li>
+<li>Spirit Blockerz(Andhra Pradesh)</li>
+<li>Wind Kamikaze Pilots(Kerala)</li>
+<li>Retro Chuckers(Uttrakhand)</li>
+<li>Venomous cyborgs(West Bengal)</li>
+<li>Quicksilver Ninjas(Sikkim)</li>
+<li>Alpha Blockerz(Rajasthan)</li>
+<li>Retro heroes(Harayana)</li>
+<li>Lions(Punjab)</li>
+<li>Raging Spanners(Himachal Pradesh)</li>
+<li>Poison Spiders(Odisha)</li>
+<li>Black Bullets(ttar Pradesh)</li>
+<li>Thunder Commandos(Uttar Pradesh)</li>
+<li>Venomous Sharks(Harayana)</li>
+<li>Killer Stars(Nagaland)</li>
+<li>Tornado geckos(Punjab)</li>
+<li>Knockout Busters(Madhya Pradesh)</li>
+<li>Muffin Racres(Maharshtra)</li>
+<li>Real Madrid(Delhi)</li>
+<li>Demolition Pildervivers(Uttrakhand)</li>
+<li>Flying Experss(Delhi)</li>
+<li>The Silver wasps(Uttarkhand)</li>
+<li>The ShowStoppers(Delhi)</li>
+<li>Wolfburg(Harayana)</li>
+<li>Black and White Gangstaz(Andhra Pradesh)</li>
+
+
+
+
+</ul>
+
+<!-- <form>
+  <div class="mb-3">
+    <label for="" class="form-label">Team </label>
+    <input type="" class="form-control" id="" aria-describedby="">
+    <div id="Team" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">State name </label>
+    <input type="" class="form-control" id="State">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+
+<form action = "ustra.php" method = "post">
+<label>Team:</label><input type ="text" name  = "name"><br>
+<button type = "submit" name = "submit"> Submit </button>
+    
+    </main>
+
+    <footer>
+        <a href ="#"> FAQ</a>
+        <a href ="#">Contact us </a>
+        <a href ="#">Terms of use</a>
+        <a href ="#">Privacy policy</a>
+        <a href ="#">Refund policy</a>
+        <a href ="#">&copy; 2022 | Dhiraj Kathuria</a>
+    </footer>
+    
+</body>
+</html>
